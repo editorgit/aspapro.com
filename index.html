@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alexander Budanov — AI for your business</title>
+<meta name="description" content="Forward deployed AI engineer in Tallinn, Estonia. I learn how your business runs, build an AI solution that fits it, and teach your team to use it.">
+<meta property="og:title" content="Alexander Budanov — AI for your business">
+<meta property="og:description" content="AI that works for your business — built with you, handed over to your team. Tallinn, Estonia · EU.">
+<meta property="og:url" content="https://aspapro.com/">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0b'/%3E%3Cpath d='M8 23 15 9h2l7 14h-3.2l-1.5-3.2h-6.6L11.2 23Z' fill='%23d4ff3a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0b;
+    --bg-2: #121214;
+    --line: #26262a;
+    --text: #f1f1ec;
+    --soft: #c9c9c3;
+    --muted: #8d8d87;
+    --accent: #d4ff3a;
+    --accent-ink: #0a0a0b;
+    --warn: #ff6b4a;
+    --display: "Space Grotesk", system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+    --gutter: clamp(16px, 4vw, 48px);
+    --max: 1200px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: var(--display); font-size: 18px; line-height: 1.5;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  a { color: inherit; }
+  ::selection { background: var(--accent); color: var(--accent-ink); }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+  .mono { font-family: var(--mono); font-size: 13px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+  .accent { color: var(--accent); }
+
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: blur(10px); border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .logo { font-weight: 700; font-size: 20px; letter-spacing: -.02em; text-decoration: none; }
+  .logo span { color: var(--accent); }
+  nav ul { display: flex; gap: 28px; list-style: none; }
+  nav ul a { text-decoration: none; font-family: var(--mono); font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  nav ul a:hover { color: var(--text); }
+
+  .hero { position: relative; padding: clamp(64px, 12vw, 140px) 0 clamp(56px, 8vw, 96px); border-bottom: 1px solid var(--line); overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 80% 70% at 70% 30%, #000 10%, transparent 75%);
+    opacity: .55;
+  }
+  .hero .wrap { position: relative; }
+  .status { display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; background: var(--bg-2); }
+  .status i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); animation: pulse 2s infinite; flex: none; }
+  @keyframes pulse { 50% { opacity: .35; } }
+  h1 { margin-top: 28px; font-size: clamp(44px, 8.5vw, 116px); line-height: .94; letter-spacing: -.045em; font-weight: 700; max-width: 13ch; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .lede { margin-top: 32px; max-width: 640px; font-size: clamp(18px, 2vw, 21px); color: var(--soft); }
+  .cta { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 10px;
+    border: 1px solid var(--line); font-family: var(--mono); font-size: 14px; text-decoration: none; letter-spacing: .02em;
+    transition: transform .15s, background .15s, border-color .15s;
+  }
+  .btn:hover { transform: translateY(-2px); border-color: var(--text); }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 500; }
+  .btn.primary:hover { background: #e6ff7a; }
+
+  .marquee { border-bottom: 1px solid var(--line); overflow: hidden; white-space: nowrap; padding: 18px 0; }
+  .marquee div { display: inline-block; animation: slide 45s linear infinite; }
+  .marquee span { font-family: var(--mono); font-size: 14px; color: var(--muted); margin-right: 44px; text-transform: uppercase; letter-spacing: .06em; }
+  .marquee span::before { content: "✦"; color: var(--accent); margin-right: 44px; }
+  @keyframes slide { to { transform: translateX(-50%); } }
+
+  section { padding: clamp(64px, 10vw, 120px) 0; border-bottom: 1px solid var(--line); }
+  .head { display: grid; grid-template-columns: 220px 1fr; gap: 32px; margin-bottom: 56px; align-items: start; }
+  h2 { font-size: clamp(32px, 5vw, 60px); line-height: 1.02; letter-spacing: -.035em; font-weight: 700; max-width: 19ch; }
+  .sub { margin-top: 20px; color: var(--soft); font-size: 19px; max-width: 640px; }
+
+  /* problem */
+  .contrast { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+  .contrast > div { background: var(--bg); padding: 32px; }
+  .contrast h3 { font-size: 22px; letter-spacing: -.015em; margin: 18px 0 10px; }
+  .contrast p { color: #b9b9b3; font-size: 17px; }
+  .contrast .me { background: var(--bg-2); box-shadow: inset 0 0 0 1px var(--accent); }
+  .contrast .me h3 { color: var(--accent); }
+
+  /* process */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: s; }
+  .step-card { border-top: 2px solid var(--line); padding-top: 22px; transition: border-color .2s; }
+  .step-card:hover { border-color: var(--accent); }
+  .step-card .num { font-family: var(--mono); color: var(--accent); font-size: 14px; }
+  .step-card h3 { font-size: 24px; letter-spacing: -.02em; margin: 14px 0 10px; }
+  .step-card p { color: #b9b9b3; font-size: 17px; }
+
+  /* examples */
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .tile { border: 1px solid var(--line); border-radius: 14px; padding: 28px; background: var(--bg-2); transition: border-color .2s, transform .2s; }
+  .tile:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .tile .ico { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+  .tile h3 { font-size: 21px; letter-spacing: -.015em; margin: 16px 0 8px; line-height: 1.2; }
+  .tile p { color: #b9b9b3; font-size: 16px; }
+  .note { margin-top: 28px; color: var(--muted); font-size: 17px; max-width: 760px; }
+  .note b { color: var(--text); font-weight: 500; }
+
+  /* promises */
+  .fails { border-top: 1px solid var(--line); }
+  .fail { display: grid; grid-template-columns: 56px 1fr 40px 1fr; gap: 24px; align-items: baseline; padding: 26px 0; border-bottom: 1px solid var(--line); }
+  .fail .n { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+  .fail .bad { font-size: clamp(19px, 2.2vw, 24px); letter-spacing: -.01em; }
+  .fail .bad::before { content: "✕ "; color: var(--warn); font-size: .8em; }
+  .fail .arrow { font-family: var(--mono); color: var(--accent); }
+  .fail .good { color: var(--soft); font-size: 17px; }
+
+  /* proof */
+  .proof { display: grid; grid-template-columns: 1.3fr 1fr; gap: 20px; }
+  .proj { display: block; text-decoration: none; border: 1px solid var(--line); border-radius: 16px; padding: 32px; background: var(--bg-2); transition: border-color .2s, transform .2s; }
+  .proj:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .proj.big { grid-row: span 2; }
+  .proj h3 { font-size: 30px; letter-spacing: -.025em; margin: 14px 0 12px; }
+  .proj p { color: #b9b9b3; font-size: 17px; }
+  .proj ul { margin-top: 18px; list-style: none; }
+  .proj li { color: var(--soft); font-size: 16px; padding: 8px 0; border-top: 1px solid var(--line); }
+  .proj li::before { content: "→ "; color: var(--accent); font-family: var(--mono); }
+  .proj .go { margin-top: 22px; font-family: var(--mono); font-size: 13px; color: var(--accent); }
+
+  /* about */
+  .about { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  .about p { color: var(--soft); font-size: 19px; }
+  .about p + p { margin-top: 18px; }
+  .facts { list-style: none; border-top: 1px solid var(--line); }
+  .facts li { display: flex; justify-content: space-between; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .facts li span:last-child { color: var(--muted); text-align: right; }
+
+  .contact h2 { font-size: clamp(40px, 8vw, 104px); max-width: 14ch; margin-top: 24px; }
+  .contact .sub { margin-top: 28px; }
+  .contact .cta { margin-top: 40px; }
+
+  footer { padding: 32px 0 40px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  @media (max-width: 900px) {
+    nav ul { display: none; }
+    .head { grid-template-columns: 1fr; gap: 14px; margin-bottom: 40px; }
+    .contrast, .tiles, .proof, .about { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+    .fail { grid-template-columns: 1fr; gap: 6px; }
+    .fail .arrow { display: none; }
+    .fail .good::before { content: "→ "; color: var(--accent); font-family: var(--mono); }
+    .proj.big { grid-row: auto; }
+    .about { gap: 36px; }
+  }
+  @media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee div, .status i { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">aspapro<span>.</span></a>
+    <ul>
+      <li><a href="#how">How I work</a></li>
+      <li><a href="#what">What I build</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="status mono"><i></i>Forward deployed AI engineer · Tallinn, Estonia · EU</div>
+    <h1>AI that actually <em>works</em> for your business.</h1>
+    <p class="lede">I come in, learn how your business really runs, build an AI solution that fits it, and teach your team to use it. You don't need to be technical — that part is my job.</p>
+    <div class="cta">
+      <a class="btn primary" href="#contact">Tell me about your problem →</a>
+      <a class="btn" href="#how">How it works</a>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div>
+    <span>Customer questions</span><span>Documents</span><span>Reports</span><span>Email</span><span>Sales</span><span>Operations</span><span>Internal tools</span><span>Paperwork</span>
+    <span>Customer questions</span><span>Documents</span><span>Reports</span><span>Email</span><span>Sales</span><span>Operations</span><span>Internal tools</span><span>Paperwork</span>
+  </div>
+</div>
+
+<section id="why">
+  <div class="wrap">
+    <div class="head">
+      <div class="mono">01 — Why this</div>
+      <div>
+        <h2>You know AI could save hours. Making it real is the hard part.</h2>
+        <p class="sub">Generic tools fit the average company, not yours. Agencies build what you specify, but they don't know your work. Hiring an AI team is slow and expensive.</p>
+      </div>
+    </div>
+    <div class="contrast">
+      <div>
+        <div class="mono">Off-the-shelf AI tools</div>
+        <h3>Built for everyone</h3>
+        <p>Great for the general case. Usually not for the part of your work that actually makes you money.</p>
+      </div>
+      <div>
+        <div class="mono">Consultants</div>
+        <h3>Advise and leave</h3>
+        <p>You get a strategy deck and a list of ideas. Someone still has to build it.</p>
+      </div>
+      <div class="me">
+        <div class="mono">Forward deployed engineer</div>
+        <h3>Builds it and stays</h3>
+        <p>I work next to you, build the solution myself and stay until it works — then your team owns it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="head">
+      <div class="mono">02 — How I work</div>
+      <h2>From your problem to a working tool in weeks, not quarters.</h2>
+    </div>
+    <div class="steps">
+      <div class="step-card">
+        <div class="num">01</div>
+        <h3>Learn your business</h3>
+        <p>I watch how the work is really done and find where the hours go — before writing a line of code.</p>
+      </div>
+      <div class="step-card">
+        <div class="num">02</div>
+        <h3>Pick the right fix</h3>
+        <p>We agree on one problem worth solving first. Sometimes the honest answer is a simple script, not AI.</p>
+      </div>
+      <div class="step-card">
+        <div class="num">03</div>
+        <h3>Build it with you</h3>
+        <p>A working solution on your data and your tools, shown to you early and often, not at the end.</p>
+      </div>
+      <div class="step-card">
+        <div class="num">04</div>
+        <h3>Hand it over</h3>
+        <p>I train your team, write down how it works and stay until it runs on its own. You own all of it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="what">
+  <div class="wrap">
+    <div class="head">
+      <div class="mono">03 — What I build</div>
+      <h2>Personal AI solutions, shaped around how you work.</h2>
+    </div>
+    <div class="tiles">
+      <div class="tile"><div class="ico">/ask</div><h3>Answers from your own documents</h3><p>An assistant for customers or staff that answers from your price lists, policies and manuals — and says "I don't know" instead of guessing.</p></div>
+      <div class="tile"><div class="ico">/docs</div><h3>Paperwork that fills itself</h3><p>Data pulled from invoices, contracts, forms and emails straight into your systems.</p></div>
+      <div class="tile"><div class="ico">/reply</div><h3>Faster replies to customers</h3><p>Drafts for routine emails and requests, ready for a person to check and send.</p></div>
+      <div class="tile"><div class="ico">/report</div><h3>Reports nobody has to assemble</h3><p>A morning summary of what happened, what's stuck and what needs you today.</p></div>
+      <div class="tile"><div class="ico">/connect</div><h3>Tools that talk to each other</h3><p>Your CRM, spreadsheets, booking or accounting connected, with AI doing the routine steps between them.</p></div>
+      <div class="tile"><div class="ico">/custom</div><h3>Something only you need</h3><p>A small internal tool built for one job in your business. Often the most valuable kind.</p></div>
+    </div>
+    <p class="note"><b>Under the hood:</b> large language models, AI agents and retrieval (RAG) from the leading providers — chosen for your case, not for the hype.</p>
+  </div>
+</section>
+
+<section id="trust">
+  <div class="wrap">
+    <div class="head">
+      <div class="mono">04 — Reliability</div>
+      <h2>AI that you can trust with real work.</h2>
+    </div>
+    <div class="fails">
+      <div class="fail"><span class="n">01</span><span class="bad">AI makes up numbers</span><span class="arrow">→</span><span class="good">Prices, totals and anything exact come from your data and plain code. The model only explains.</span></div>
+      <div class="fail"><span class="n">02</span><span class="bad">AI does something nobody approved</span><span class="arrow">→</span><span class="good">Anything that sends, pays or deletes waits for a person to confirm.</span></div>
+      <div class="fail"><span class="n">03</span><span class="bad">It worked in the demo, then got worse</span><span class="arrow">→</span><span class="good">A test set of real cases is run before every change, so quality is measured, not hoped for.</span></div>
+      <div class="fail"><span class="n">04</span><span class="bad">Nobody knows how it works</span><span class="arrow">→</span><span class="good">Your team is trained, the system is documented, and you own the code and the data.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="head">
+      <div class="mono">05 — Work</div>
+      <h2>Built and running, not slideware.</h2>
+    </div>
+    <div class="proof">
+      <a class="proj big" href="https://aimaakler.com" target="_blank" rel="noopener">
+        <div class="mono">AI assistant · live</div>
+        <h3>AImaakler</h3>
+        <p>An AI real-estate assistant that answers people's questions about housing prices in Tallinn — in plain words, from official transaction data.</p>
+        <ul>
+          <li>Every number comes from real deal records, never from the model</li>
+          <li>Tested against tricky and malicious questions before each release</li>
+          <li>Each night, answers are reviewed and weak ones are removed</li>
+        </ul>
+        <div class="go">aimaakler.com →</div>
+      </a>
+      <a class="proj" href="https://github.com/editorgit/agentic-delivery" target="_blank" rel="noopener">
+        <div class="mono">Open source</div>
+        <h3>agentic-delivery</h3>
+        <p>How I ship software with AI every day: another AI double-checks the work, and a person approves every important step.</p>
+        <div class="go">github.com/editorgit →</div>
+      </a>
+      <a class="proj" href="https://www.linkedin.com/in/alexanderbudanov" target="_blank" rel="noopener">
+        <div class="mono">Track record</div>
+        <h3>10 years of software</h3>
+        <p>Production systems for cloud, industrial and consumer businesses — and a team I led.</p>
+        <div class="go">LinkedIn →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="head">
+      <div class="mono">06 — About</div>
+      <h2>Alexander Budanov.</h2>
+    </div>
+    <div class="about">
+      <div>
+        <p>I'm a senior software engineer with ten years of building production systems, and more than a year of building with AI every day.</p>
+        <p>I've taken products from a first conversation to launch, led an 8-person engineering team, and learned where AI shines and where it confidently gets things wrong. That second part is why my solutions hold up in real work.</p>
+      </div>
+      <ul class="facts">
+        <li><span>Software engineering</span><span>10 years</span></li>
+        <li><span>Building with AI</span><span>1+ year, every day</span></li>
+        <li><span>Leadership</span><span>Led a team of 8</span></li>
+        <li><span>Languages</span><span>English, Russian</span></li>
+        <li><span>Based in</span><span>Tallinn, Estonia · EU</span></li>
+        <li><span>Works</span><span>On-site in Estonia or remote</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="mono">07 — Contact</div>
+    <h2>What's eating your team's <span class="accent">hours?</span></h2>
+    <p class="sub">Tell me about one problem. I'll tell you honestly whether AI can fix it — and what it would take.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://www.linkedin.com/in/alexanderbudanov" target="_blank" rel="noopener">Message me on LinkedIn →</a>
+      <a class="btn" href="https://github.com/editorgit" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap mono">
+    <span>© 2026 Alexander Budanov · aspapro</span>
+    <span>Tallinn, Estonia</span>
+  </div>
+</footer>
+
+</body>
+</html>
