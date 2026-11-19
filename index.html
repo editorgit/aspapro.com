@@ -8,173 +8,23 @@
 <meta property="og:title" content="Alexander Budanov — AI for your business">
 <meta property="og:description" content="AI that works for your business — built with you, handed over to your team. Tallinn, Estonia · EU.">
 <meta property="og:url" content="https://aspapro.com/">
+<link rel="alternate" hreflang="en" href="https://aspapro.com/">
+<link rel="alternate" hreflang="et" href="https://aspapro.com/et/">
+<link rel="alternate" hreflang="ru" href="https://aspapro.com/ru/">
+<link rel="alternate" hreflang="x-default" href="https://aspapro.com/">
 <meta name="theme-color" content="#0a0a0b">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0b'/%3E%3Cpath d='M8 23 15 9h2l7 14h-3.2l-1.5-3.2h-6.6L11.2 23Z' fill='%23d4ff3a'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #0a0a0b;
-    --bg-2: #121214;
-    --line: #26262a;
-    --text: #f1f1ec;
-    --soft: #c9c9c3;
-    --muted: #8d8d87;
-    --accent: #d4ff3a;
-    --accent-ink: #0a0a0b;
-    --warn: #ff6b4a;
-    --display: "Space Grotesk", system-ui, sans-serif;
-    --mono: "JetBrains Mono", ui-monospace, monospace;
-    --gutter: clamp(16px, 4vw, 48px);
-    --max: 1200px;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg); color: var(--text);
-    font-family: var(--display); font-size: 18px; line-height: 1.5;
-    -webkit-font-smoothing: antialiased; overflow-x: hidden;
-  }
-  a { color: inherit; }
-  ::selection { background: var(--accent); color: var(--accent-ink); }
-  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-  .mono { font-family: var(--mono); font-size: 13px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
-  .accent { color: var(--accent); }
-
-  nav {
-    position: sticky; top: 0; z-index: 10;
-    background: color-mix(in srgb, var(--bg) 82%, transparent);
-    backdrop-filter: blur(10px); border-bottom: 1px solid var(--line);
-  }
-  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
-  .logo { font-weight: 700; font-size: 20px; letter-spacing: -.02em; text-decoration: none; }
-  .logo span { color: var(--accent); font-weight: 500; }
-  nav ul { display: flex; gap: 28px; list-style: none; }
-  nav ul a { text-decoration: none; font-family: var(--mono); font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
-  nav ul a:hover { color: var(--text); }
-
-  .hero { position: relative; padding: clamp(64px, 12vw, 140px) 0 clamp(56px, 8vw, 96px); border-bottom: 1px solid var(--line); overflow: hidden; }
-  .hero::before {
-    content: ""; position: absolute; inset: 0; pointer-events: none;
-    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size: 64px 64px;
-    mask-image: radial-gradient(ellipse 80% 70% at 70% 30%, #000 10%, transparent 75%);
-    opacity: .55;
-  }
-  .hero .wrap { position: relative; }
-  .status { display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; background: var(--bg-2); }
-  .status i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); animation: pulse 2s infinite; flex: none; }
-  @keyframes pulse { 50% { opacity: .35; } }
-  h1 { margin-top: 28px; font-size: clamp(44px, 8.5vw, 116px); line-height: .94; letter-spacing: -.045em; font-weight: 700; max-width: 13ch; }
-  h1 em { font-style: normal; color: var(--accent); }
-  .lede { margin-top: 32px; max-width: 640px; font-size: clamp(18px, 2vw, 21px); color: var(--soft); }
-  .cta { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 12px; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 10px;
-    border: 1px solid var(--line); font-family: var(--mono); font-size: 14px; text-decoration: none; letter-spacing: .02em;
-    transition: transform .15s, background .15s, border-color .15s;
-  }
-  .btn:hover { transform: translateY(-2px); border-color: var(--text); }
-  .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 500; }
-  .btn.primary:hover { background: #e6ff7a; }
-
-  .marquee { border-bottom: 1px solid var(--line); overflow: hidden; white-space: nowrap; padding: 18px 0; }
-  .marquee div { display: inline-block; animation: slide 45s linear infinite; }
-  .marquee span { font-family: var(--mono); font-size: 14px; color: var(--muted); margin-right: 44px; text-transform: uppercase; letter-spacing: .06em; }
-  .marquee span::before { content: "✦"; color: var(--accent); margin-right: 44px; }
-  @keyframes slide { to { transform: translateX(-50%); } }
-
-  section { padding: clamp(64px, 10vw, 120px) 0; border-bottom: 1px solid var(--line); }
-  .head { display: grid; grid-template-columns: 220px 1fr; gap: 32px; margin-bottom: 56px; align-items: start; }
-  h2 { font-size: clamp(32px, 5vw, 60px); line-height: 1.02; letter-spacing: -.035em; font-weight: 700; max-width: 19ch; }
-  .sub { margin-top: 20px; color: var(--soft); font-size: 19px; max-width: 640px; }
-
-  /* problem */
-  .contrast { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
-  .contrast > div { background: var(--bg); padding: 32px; }
-  .contrast h3 { font-size: 22px; letter-spacing: -.015em; margin: 18px 0 10px; }
-  .contrast p { color: #b9b9b3; font-size: 17px; }
-  .contrast .me { background: var(--bg-2); box-shadow: inset 0 0 0 1px var(--accent); }
-  .contrast .me h3 { color: var(--accent); }
-
-  /* process */
-  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: s; }
-  .step-card { border-top: 2px solid var(--line); padding-top: 22px; transition: border-color .2s; }
-  .step-card:hover { border-color: var(--accent); }
-  .step-card .num { font-family: var(--mono); color: var(--accent); font-size: 14px; }
-  .step-card h3 { font-size: 24px; letter-spacing: -.02em; margin: 14px 0 10px; }
-  .step-card p { color: #b9b9b3; font-size: 17px; }
-
-  /* examples */
-  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .tile { border: 1px solid var(--line); border-radius: 14px; padding: 28px; background: var(--bg-2); transition: border-color .2s, transform .2s; }
-  .tile:hover { border-color: var(--accent); transform: translateY(-3px); }
-  .tile .ico { font-family: var(--mono); font-size: 13px; color: var(--accent); }
-  .tile h3 { font-size: 21px; letter-spacing: -.015em; margin: 16px 0 8px; line-height: 1.2; }
-  .tile p { color: #b9b9b3; font-size: 16px; }
-  .note { margin-top: 28px; color: var(--muted); font-size: 17px; max-width: 760px; }
-  .note b { color: var(--text); font-weight: 500; }
-
-  /* promises */
-  .fails { border-top: 1px solid var(--line); }
-  .fail { display: grid; grid-template-columns: 56px 1fr 40px 1fr; gap: 24px; align-items: baseline; padding: 26px 0; border-bottom: 1px solid var(--line); }
-  .fail .n { font-family: var(--mono); font-size: 13px; color: var(--muted); }
-  .fail .bad { font-size: clamp(19px, 2.2vw, 24px); letter-spacing: -.01em; }
-  .fail .bad::before { content: "✕ "; color: var(--warn); font-size: .8em; }
-  .fail .arrow { font-family: var(--mono); color: var(--accent); }
-  .fail .good { color: var(--soft); font-size: 17px; }
-
-  /* proof */
-  .proof { display: grid; grid-template-columns: 1.3fr 1fr; gap: 20px; }
-  .proj { display: block; text-decoration: none; border: 1px solid var(--line); border-radius: 16px; padding: 32px; background: var(--bg-2); transition: border-color .2s, transform .2s; }
-  .proj:hover { border-color: var(--accent); transform: translateY(-3px); }
-  .proj.big { grid-row: span 2; }
-  .proj h3 { font-size: 30px; letter-spacing: -.025em; margin: 14px 0 12px; }
-  .proj p { color: #b9b9b3; font-size: 17px; }
-  .proj ul { margin-top: 18px; list-style: none; }
-  .proj li { color: var(--soft); font-size: 16px; padding: 8px 0; border-top: 1px solid var(--line); }
-  .proj li::before { content: "→ "; color: var(--accent); font-family: var(--mono); }
-  .proj .go { margin-top: 22px; font-family: var(--mono); font-size: 13px; color: var(--accent); }
-
-  /* about */
-  .about { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
-  .about p { color: var(--soft); font-size: 19px; }
-  .about p + p { margin-top: 18px; }
-  .facts { list-style: none; border-top: 1px solid var(--line); }
-  .facts li { display: flex; justify-content: space-between; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--line); }
-  .facts li span:last-child { color: var(--muted); text-align: right; }
-
-  .contact h2 { font-size: clamp(40px, 8vw, 104px); max-width: 14ch; margin-top: 24px; }
-  .contact .sub { margin-top: 28px; }
-  .contact .cta { margin-top: 40px; }
-
-  footer { padding: 32px 0 40px; }
-  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-
-  @media (max-width: 900px) {
-    nav ul { display: none; }
-    .head { grid-template-columns: 1fr; gap: 14px; margin-bottom: 40px; }
-    .contrast, .tiles, .proof, .about { grid-template-columns: 1fr; }
-    .steps { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
-    .fail { grid-template-columns: 1fr; gap: 6px; }
-    .fail .arrow { display: none; }
-    .fail .good::before { content: "→ "; color: var(--accent); font-family: var(--mono); }
-    .proj.big { grid-row: auto; }
-    .about { gap: 36px; }
-  }
-  @media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
-  @media (prefers-reduced-motion: reduce) {
-    .marquee div, .status i { animation: none; }
-    html { scroll-behavior: auto; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
 <nav>
   <div class="wrap">
     <a class="logo" href="#top" aria-label="aspapro">aspa<span>pro</span></a>
+    <div class="nav-right">
     <ul>
       <li><a href="#how">How I work</a></li>
       <li><a href="#what">What I build</a></li>
@@ -182,6 +32,8 @@
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <div class="lang"><a href="/" hreflang="en" aria-current="page">EN</a><a href="/et/" hreflang="et">ET</a><a href="/ru/" hreflang="ru">RU</a></div>
+    </div>
   </div>
 </nav>
 
